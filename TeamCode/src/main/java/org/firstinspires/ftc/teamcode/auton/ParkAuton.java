@@ -30,16 +30,16 @@ public class ParkAuton extends LinearOpMode {
         // Initialize the hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
-        frontLeftMotor  = hardwareMap.dcMotor.get("frontLeftMotor" );
+        frontLeftMotor = hardwareMap.dcMotor.get("frontLeftMotor");
         frontRightMotor = hardwareMap.dcMotor.get("frontRightMotor");
-        backLeftMotor   = hardwareMap.dcMotor.get("backLeftMotor"  );
-        backRightMotor  = hardwareMap.dcMotor.get("backRightMotor" );
+        backLeftMotor = hardwareMap.dcMotor.get("backLeftMotor");
+        backRightMotor = hardwareMap.dcMotor.get("backRightMotor");
 
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery
-        frontLeftMotor.setDirection (DcMotor.Direction.REVERSE);
+        frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
-        backLeftMotor.setDirection (DcMotor.Direction.REVERSE);
+        backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backRightMotor.setDirection(DcMotor.Direction.FORWARD);
 
         // Wait for the game to start (driver presses PLAY)
