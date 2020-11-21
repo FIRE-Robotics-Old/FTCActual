@@ -47,7 +47,7 @@ public class ParkAuton extends LinearOpMode {
         runtime.reset();
 
         // run until the end of the match (driver presses STOP)
-        while (opModeIsActive()) {
+        try{
             sleep(3000);
 //comment
             frontLeftMotor.setPower(0.5);
@@ -55,12 +55,37 @@ public class ParkAuton extends LinearOpMode {
             backRightMotor.setPower(0.5);
             backLeftMotor.setPower(0.5);
 
+            double startTime = runtime.milliseconds();
+            double currentTime = 0;
+
+            while (currentTime < startTime + 5000) {
+                telemetry.speak("In Loop");
+                frontLeftMotor.setPower(0.3);
+                frontRightMotor.setPower(0.3);
+                backLeftMotor.setPower(0.3);
+                backRightMotor.setPower(0.3);
+                currentTime = runtime.milliseconds();
+            }
+
+            frontLeftMotor.setPower(0);
+            frontRightMotor.setPower(0);
+            backLeftMotor.setPower(0);
+            backRightMotor.setPower(0);
+
+
+
+
+
+
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
 
             telemetry.update();
 
+        }
+        catch (Exception e){
+            telemetry.addData("error:",e.getStackTrace());
         }
     }
 }
